@@ -11,9 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             "id",
-            "email",
             "username",
-            "joind_at",
+            "joined_at",
         ]
 
 
@@ -23,10 +22,8 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = [
-            "id",
             "email",
             "username",
-            "joind_at",
             "password",
         ]
 
@@ -42,6 +39,9 @@ class UserCreateSerializer(serializers.ModelSerializer):
             value = "@".join([email_name, domain_part.lower()])
         return value
 
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
 
 class UserUpadateSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,7 +50,6 @@ class UserUpadateSerializer(serializers.ModelSerializer):
             "id",
             "email",
             "username",
-            "joind_at",
         ]
 
     def validate_email(self, value):

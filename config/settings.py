@@ -151,21 +151,11 @@ LOGGING = {
             "class": "logging.FileHandler",
             "filename": "debug_db.log",
         },
-        "file_for_server": {
-            "level": "DEBUG",
-            "class": "logging.FileHandler",
-            "filename": "debug_server.log",
-        },
     },
     "loggers": {
         "django.db.backends": {
             "handlers": ["file_for_db"],
             "level": "DEBUG",
-        },
-        "django.server": {
-            "handlers": ["file_for_server"],
-            "level": "INFO",
-            "propagate": False,
         },
     },
 }
