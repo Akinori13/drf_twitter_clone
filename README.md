@@ -26,6 +26,12 @@ pm.collectionVariables.set("Refresh", pm.response.json()["refresh"]);
 ### CURL
 curlではなくHTTPieの利用も検討
 
+### Logging
+- クエリ履歴：debug_db.log
+- サーバー履歴：debug_server.log
+
+### DB
+VSCodeのSQLiteViewerを使用することでdb.sqlite3の内容を確認可能。
 
 ## Login機能のガイド
 以下はcurlでガイドするが、POSTMANやHTTPieの利用も可能。
